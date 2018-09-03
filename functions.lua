@@ -74,6 +74,7 @@ function modifyWorm(entity)
 		local s = entity.surface
 		entity.destroy()
 		s.create_entity{name = evo < 0.4 and "small-worm-turret" or "medium-worm-turret", position = pos, force = f, direction = dir}
+		return
 	end
 	if entity.name == "medium-worm-turret" and evo < 0.4 then
 		local pos = entity.position
