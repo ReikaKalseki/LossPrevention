@@ -36,5 +36,5 @@ addConstructionEvoThreshold(0.05, "electric-mining-drill", 2)
 addConstructionEvoThreshold(0.4, "oil-refinery", 1)
 
 addMiscEvoThreshold(0.5, function(force)
-	return force.item_production_statistics.get_output_count("science-pack-3") >= 25
+	return force.item_production_statistics.get_output_count("science-pack-3") >= 25*game.difficulty_settings.technology_price_multiplier
 end)
