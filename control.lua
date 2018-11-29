@@ -20,7 +20,8 @@ end)
 
 script.on_event(defines.events.on_tick, function(event)
 	if event.tick%300 == 0 then
-		clampEvoAsNecessary(false)
+		local cache = global.lossp
+		clampEvoAsNecessary(cache, false)
 	end
 end)
 

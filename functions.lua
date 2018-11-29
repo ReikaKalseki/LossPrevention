@@ -1,7 +1,7 @@
 require "config"
 require "constants"
 
-function clampEvoAsNecessary(fresh)
+function clampEvoAsNecessary(cache, fresh)
 	local evo = game.forces.enemy.evolution_factor
 	local base = evo
 	for thresh,checks in pairs(THRESHOLDS) do
