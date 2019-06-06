@@ -4,7 +4,7 @@
   "title": "Loss Prevention",
   "author": "Reika",
   "homepage": "",
-  "factorio_version" : "0.16",
-  "dependencies": ["base"],
+  "factorio_version" : "0.17",
+  "dependencies": ["base", "DragonIndustries"],
   "description": "Helps prevent the game from becoming unwinnable or where progress is near-impossible due to having enemies grow faster than you can keep up. Clamps evolution factor based on your progress through the game."
 }
