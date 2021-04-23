@@ -8,9 +8,9 @@ function clampEvoAsNecessary(cache, fresh)
 		if thresh < evo then
 			for _,check in pairs(checks) do
 				if not check(game.forces.player) then
-					if game.players["Reika"] then
-						game.print("Failed a check at level " .. thresh)
-					end
+					--if game.players["Reika"] then
+					--	game.print("Failed a check at level " .. thresh)
+					--end
 					evo = thresh
 					break
 				end
