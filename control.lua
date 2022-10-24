@@ -14,8 +14,18 @@ script.on_init(function()
 end)
 
 
+local function addCommands()
+	commands.add_command("updateEvo", {"cmd.init-creative-help"}, function(event)
+		if game.players[event.player_index].admin then
+			clampEvoAsNecessary(global.lossp, true, true)
+		end
+	end)
+end
+
+addCommands()
+
 script.on_configuration_changed(function(data)
-	clampEvoAsNecessary(true)
+	clampEvoAsNecessary(global.lossp, true)
 end)
 
 script.on_event(defines.events.on_tick, function(event)

@@ -1,7 +1,7 @@
 require "config"
 require "constants"
 
-function clampEvoAsNecessary(cache, fresh)
+function clampEvoAsNecessary(cache, fresh, force)
 	local evo = game.forces.enemy.evolution_factor
 	local base = evo
 	for thresh,checks in pairs(THRESHOLDS) do
@@ -22,25 +22,25 @@ function clampEvoAsNecessary(cache, fresh)
 		
 		if fresh then --once every 15 min
 			local kill = {}
-			if evo <= 0.2 then
+			if force or evo <= 0.2 then
 				table.insert(kill, "medium-biter")
 			end
-			if evo <= 0.25 then
+			if force or evo <= 0.25 then
 				table.insert(kill, "small-spitter")
 			end
-			if evo <= 0.4 then
+			if force or evo <= 0.4 then
 				table.insert(kill, "medium-spitter")
 			end
-			if evo <= 0.5 then
+			if force or evo <= 0.5 then
 				table.insert(kill, "big-biter")
 			end
-			if evo <= 0.5 then
+			if force or evo <= 0.6 then
 				table.insert(kill, "big-spitter")
 			end
-			if evo <= 0.9 then
+			if force or evo <= 0.9 then
 				table.insert(kill, "behemoth-biter")
 			end
-			if evo <= 0.9 then
+			if force or evo <= 0.9 then
 				table.insert(kill, "behemoth-spitter")
 			end
 			if #kill > 0 then
