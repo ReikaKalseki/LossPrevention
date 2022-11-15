@@ -1,0 +1,43 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.101.148
+Date: Oct 31 2022
+  New Features:
+    - Added new late-game gates
+---------------------------------------------------------------------------------------------------
+Version: 1.101.144
+Date: Oct 7 2022
+  New Features:
+    - Added several new "gates" in the mid and late game
+---------------------------------------------------------------------------------------------------
+Version: 1.101.102
+Date: Mar 27 2021
+  Misc Changes:
+    - Update to 1.1
+---------------------------------------------------------------------------------------------------
+Version: 1.018.6
+Date: Jun 15 2020
+  Bugfixes:
+    - Fixed outdated item/tech references
+  New Features:
+    - Added checks for blue science and crude oil production and associated evo caps
+    - Added resource production threshold capability
+---------------------------------------------------------------------------------------------------
+Version: 1.018.1
+Date: May 29 2020
+  Misc Changes:
+    - Update to 0.18
+---------------------------------------------------------------------------------------------------
+Version: 1.017.1
+Date: Mar 23 2019
+  Misc Changes:
+    - Update to 0.17
+---------------------------------------------------------------------------------------------------
+Version: 1.016.148
+Date: Sep 18 2018
+  Misc Changes:
+    - Now takes tech cost multiplier into account
+---------------------------------------------------------------------------------------------------
+Version: 1.016.133
+Date: Sep 3 2018
+  Bugfixes:
+    - Fixed script crash when biters place a worm below evo 0.7
