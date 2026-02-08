@@ -38,11 +38,11 @@ end)
 
 script.on_event(defines.events.on_biter_base_built, function(event)
 	local base = event.entity
-	if base.type == "unit-spawner" and settings.startup["regulate-spawner-growth"].value then
+	if base.type == "unit-spawner" and settings.startup["lossp-regulate-spawner-growth"].value then
 		modifySpawner(base)
 		return
 	end
-	if base.type == "turret" and settings.startup["regulate-worm-growth"].value then
+	if base.type == "turret" and settings.startup["lossp-regulate-worm-growth"].value then
 		modifyWorm(base)
 		return
 	end

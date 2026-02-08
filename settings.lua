@@ -1,7 +1,7 @@
 data:extend({
         {
             type = "string-setting",
-            name = "threshold-combination-rule",
+            name = "lossp-threshold-combination-rule",
             setting_type = "startup",
             default_value = "all",
 			allowed_values = {"all", "average", "any"},
@@ -9,14 +9,14 @@ data:extend({
 		},
         {
             type = "bool-setting",
-            name = "regulate-spawner-growth",
+            name = "lossp-regulate-spawner-growth",
             setting_type = "startup",
             default_value = true,
             order = "r",
 		},
         {
             type = "bool-setting",
-            name = "regulate-worm-growth",
+            name = "lossp-regulate-worm-growth",
             setting_type = "startup",
             default_value = true,
             order = "r",
@@ -30,7 +30,7 @@ data:extend({
 		},
         {
             type = "double-setting",
-            name = "spitter-evo-threshold",
+            name = "lossp-spitter-evo-threshold",
             setting_type = "startup",
             default_value = 0.3,
             minimum_value = 0,
@@ -39,7 +39,7 @@ data:extend({
 		},
         {
             type = "double-setting",
-            name = "worm-evo-threshold-factor",
+            name = "lossp-worm-evo-threshold-factor",
             setting_type = "startup",
             default_value = 1.0,
             minimum_value = 0.1,

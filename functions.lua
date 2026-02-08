@@ -4,13 +4,14 @@ require "constants"
 ---@param surface LuaSurface
 function clampEvoAsNecessary(force, surface)
 	local evo = game.forces.enemy.get_evolution_factor(surface)
+	if evo < 0.9 and force.get_entity_count("rocket-silo") > 0 then return end -- rocket silo -> always up to 90% evo
 	local base = evo
-	local mixRule = settings.startup["threshold-combination-rule"].value
+	local mixRule = settings.startup["lossp-threshold-combination-rule"].value
 	local seconds = game.tick/60
 	local failed = {}
 	local passed = {}
 	for _,check in pairs(THRESHOLDS) do
-		local relevant = check.failEvoCeiling < evo and seconds >= check.minTime and seconds < check.maxTime
+		local relevant = check.failEvoCeiling < evo and (check.minTime == nil or seconds >= check.minTime) and (check.maxTime == nil or seconds < check.maxTime)
 		if relevant then
 			if check.criterion(force, surface) then
 				table.insert(passed, check)
@@ -44,12 +45,13 @@ end
 ---@param entity LuaEntity
 ---@return number
 local function getEvo(entity)
-	return (entity and entity.force or game.forces.enemy).evolution_factor
+	local valid = entity and entity.valid
+	return (valid and entity.force or game.forces.enemy).get_evolution_factor(valid and entity.surface or game.surfaces.nauvis)
 end
 
 ---@param entity LuaEntity
 function modifySpawner(entity)
-	if entity.name == "spitter-spawner" and getEvo(entity) < settings.startup["spitter-evo-threshold"].value then
+	if entity.name == "spitter-spawner" and getEvo(entity) < settings.startup["lossp-spitter-evo-threshold"].value then
 		local pos = entity.position
 		local f = entity.force
 		local dir = entity.direction
@@ -64,7 +66,7 @@ function modifyWorm(entity)
 	local evo = getEvo(entity)
 	local req = WORM_LIMITS[entity.name]
 	if not req then return end
-	req = req*settings.startup["worm-evo-threshold-factor"].value
+	req = req*settings.startup["lossp-worm-evo-threshold-factor"].value
 
 	if evo >= req then return end
 
